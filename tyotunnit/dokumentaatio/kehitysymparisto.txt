@@ -1,0 +1,5 @@
+Kehitysympäristö
+
+Kehitysympäristönä on käytetty Eclipse Lunaa ja Java 8 versiota.
+
+Kehitysympäristöstä julkaisuja viedään proto58.haaga-helia.fi:lle.
