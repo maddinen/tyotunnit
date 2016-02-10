@@ -11,31 +11,71 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/rekisteroidy")
 public class RekisteroitymisServlet extends HttpServlet {
-	
-	public static final String FRONT_PAGE = "WEB-INF/rekisteroityminen.jsp";
+
+	// En ole varma onko se tossa kansiossa koska en enää löydä sitä
+	public static final String FRONT_PAGE = "WEB-INF/register.jsp";
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public RekisteroitymisServlet() {
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Default constructor.
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public RekisteroitymisServlet() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher(FRONT_PAGE).forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String etunimi = request.getParameter("etunimi");
+		String sukunimi = request.getParameter("sukunimi");
+		String email = request.getParameter("email");
+		String kayttajatunnus = request.getParameter("kayttajatunnus");
+		String salasana = request.getParameter("password");
+		String salasana2 = request.getParameter("password2");
+
+		try {
+			// luodaan käyttäjä suolalla ja hashilla
+			Kayttaja kayttaja = new Kayttaja(kayttajatunnus, salasana, salasana2);
+			// lisätään tietokantaan
+			KayttajaDAO dao = new KayttajaDAO();
+			dao.rekisteroi(kayttaja);
+
+			// takaisin onnistumisviestillä
+			response.sendRedirect("rekisteroidy?onnistui=y");
+
+		} catch (InvalidKayttajaPoikkeus e) {
+			takaisinVirheviestilla(e.getMessage(), kayttajatunnus, request, response);
+		} /*
+			 * catch(UsernameVarattuPoikkeus e) { String virheviesti =
+			 * "Käyttäjätunnus " +kayttajatunnus +
+			 * " on jo varattu, valitse toinen käyttäjätunnus!";
+			 * takaisinVirheviestilla(virheviesti, kayttajatunnus, request,
+			 * response); }
+			 */catch (DAOPoikkeus e) {
+			throw new ServletException("Tietokantavirhe", e);
+		} catch (NoSuchAlgorithmException e) {
+			throw new ServletException("Salausalgoritmia ei löydy.", e);
+		}
+	}
+
+	private void takaisinVirheviestilla(String viesti, String kayttajatunnus, HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("error", viesti);
+		request.setAttribute("prev_reg_username", kayttajatunnus);
+		request.getRequestDispatcher(FRONT_PAGE).forward(request, response);
+
 	}
 
 }

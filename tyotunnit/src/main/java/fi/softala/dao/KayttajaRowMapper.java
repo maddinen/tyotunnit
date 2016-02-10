@@ -10,7 +10,7 @@ public class KayttajaRowMapper implements RowMapper<Kayttaja> {
 		k.setSukunimi(rs.getString("sukunimi"));
 		k.setKayttajatunnus(rs.getString("kayttajatunnus"));
 		k.setEmail(rs.getString("email"));
-		
+
 		return k;
 	}
 }

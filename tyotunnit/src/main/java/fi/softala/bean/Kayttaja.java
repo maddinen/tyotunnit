@@ -7,24 +7,35 @@ package fi.softala.bean;
  */
 public class Kayttaja {
 
-	private String kayttajatunnus, email, etunimi, sukunimi, salasana;
+	private String kayttajatunnus, email, etunimi, sukunimi, salasana, suola;
+	private static final String SALAUS_ALGORITMI = Salaaja.SHA512;
+	private static final int SALAUS_KIERROKSIA = 100;
 
-	public Kayttaja(){
+	public Kayttaja(String kayttajatunnus, String salasana, String salasana2)
+			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		super();
-		kayttajatunnus = null;
-		email = null;
-		etunimi = null;
-		sukunimi = null;
-		salasana = null;
+
+		validoi(kayttajatunnus, salasana, salasana2);
+
+		this.username = kayttajatunnus;
+
+		// generoidaan suola
+		String suola = Salaaja.generoiSuola();
+		setSalt(suola);
+		// kryptataan salasana
+		String kryptattuSalasana = Salaaja.salaa(salasana, getSalt(), SALAUS_ALGORITMI, SALAUS_KIERROKSIA);
+		setSalasana(kryptattuSalasana);
 	}
-	
-	public Kayttaja(String kayttajatunnus, String email, String etunimi, String sukunimi, String salasana) {
+
+	public Kayttaja(String kayttajatunnus, String email, String etunimi, String sukunimi, String salasana,
+			String suola) {
 		super();
 		this.kayttajatunnus = kayttajatunnus;
 		this.email = email;
 		this.etunimi = etunimi;
 		this.sukunimi = sukunimi;
 		this.salasana = salasana;
+		this.suola = suola;
 	}
 
 	public String getKayttajatunnus() {
@@ -67,9 +78,36 @@ public class Kayttaja {
 		this.salasana = salasana;
 	}
 
+	public String getSuola() {
+		return suola;
+	}
+
+	public void setSuola(String suola) {
+		this.suola = suola;
+	}
+
 	@Override
 	public String toString() {
 		return "Kayttaja [etunimi=" + etunimi + ", sukunimi=" + sukunimi + "]";
-	}	
-	
+	}
+
+	private void validoi(String kayttajatunnus, String salasana, String salasana2) throws InvalidKayttajaPoikkeus {
+
+		if (kayttajatunnus == null || kayttajatunnus.trim().length() < 3)
+			throw new InvalidKayttajaPoikkeus("Käyttäjätunnuksen täytyy olla vähintään 3 merkkiä pitkä");
+		else if (salasana == null || salasana.trim().length() < 6)
+			throw new InvalidKayttajaPoikkeus("Salasanan täytyy olla vähintään 6 merkkiä pitkä");
+		else if (!salasana.equals(salasana2))
+			throw new InvalidKayttajaPoikkeus("Salasanat eivät täsmää");
+	}
+
+	// kryptaa annetun salasanan tämän olion suolalla ja vertaa sitä tämän olion
+	// salasanahashiin
+	public boolean vertaaSalasanaa(String salasana) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+
+		String kryptattuSalasana = Salaaja.salaa(salasana, getSuola(), SALAUS_ALGORITMI, SALAUS_KIERROKSIA);
+
+		return kryptattuSalasana.equals(this.salasana);
+	}
+
 }

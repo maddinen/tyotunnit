@@ -15,19 +15,20 @@ import fi.softala.bean.Tunti;
 
 /**
  * Luokka tuntien k�sittelyyn.
+ * 
  * @author Marita Klaavu
  *
  */
 public class TuntiDAO {
 	private Connection yhteys;
-	
-	
+
 	/**
 	 * Avaa tietokantayhteyden
+	 * 
 	 * @author Marita Klaavu
 	 *
 	 */
-	public void avaaYhteys() {	
+	public void avaaYhteys() {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver").newInstance();
 			String username = "a1500882";
@@ -35,16 +36,17 @@ public class TuntiDAO {
 			String url = "jdbc:mariadb://localhost:15001/a1500882";
 			try {
 				yhteys = DriverManager.getConnection(url, username, password);
-			} catch (SQLException e){
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Sulkee tietokantayhteyden
+	 * 
 	 * @author Marita Klaavu
 	 *
 	 */
@@ -55,31 +57,32 @@ public class TuntiDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Hakee kaikki tunnit tietokannasta
+	 * 
 	 * @author Marita Klaavu
 	 *
 	 */
 	public List<Tunti> haeTunnit() {
 		ArrayList<Tunti> tunnit = new ArrayList<Tunti>();
-		
-		//avataan yhteys
+
+		// avataan yhteys
 		avaaYhteys();
-		
+
 		try {
-			//suoritetaan haku
+			// suoritetaan haku
 			String sql = "select pvm, tuntien_maara, kommentti from Tunnit;";
 			PreparedStatement haku = yhteys.prepareStatement(sql);
 			ResultSet tulokset = haku.executeQuery();
-			
-			//k�yd��n hakutulokset l�pi
-			while (tulokset.next()){
-				Date pvm = tulokset.getDate("pvm"); //tietotyyppi?!
+
+			// k�yd��n hakutulokset l�pi
+			while (tulokset.next()) {
+				Date pvm = tulokset.getDate("pvm"); // tietotyyppi?!
 				double tuntien_maara = tulokset.getDouble("tuntien_maara");
 				String kommentti = tulokset.getString("kommentti");
-				
-				//lis�t��n tulos listaan
+
+				// lis�t��n tulos listaan
 				Tunti h = new Tunti(pvm, tuntien_maara, kommentti);
 				tunnit.add(h);
 			}
@@ -88,10 +91,10 @@ public class TuntiDAO {
 		} finally {
 			suljeYhteys();
 		}
-		
-		System.out.println("HAETTIIN TIETOKANNASTA TUNNIT: " +tunnit.toString());
+
+		System.out.println("HAETTIIN TIETOKANNASTA TUNNIT: " + tunnit.toString());
 		return tunnit;
-		
+
 	}
 
 }
