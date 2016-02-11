@@ -2,6 +2,7 @@ package fi.softala.servlet;
 
 import java.util.List;
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -58,7 +59,9 @@ public class TunnitServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		String pvm = request.getParameter("pvm");
+		//tuntien_maara
+		//kommentti
 		 
 	}
 
