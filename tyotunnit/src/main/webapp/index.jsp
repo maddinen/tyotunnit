@@ -15,6 +15,9 @@
 		Selite<br> <textarea name="selite"></textarea><br>
 		<input type="submit" value="Tallenna">
 	</form>
+	<br>
+	<a href="tuntilista.jsp">Tuntilista</a>
+	<a href="login.jsp">Kirjaudu sisään</a>
 
 </body>
 </html>

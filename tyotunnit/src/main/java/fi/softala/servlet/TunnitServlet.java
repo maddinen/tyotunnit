@@ -21,40 +21,45 @@ import fi.softala.dao.TuntiDAO;
 @WebServlet("/LoginServlet")
 public class TunnitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TunnitServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public TunnitServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
 		disp.forward(request, response);
-		
+
 		List<Tunti> tunnit = null;
-		
+
 		try {
 			TuntiDAO hDAO = new TuntiDAO();
 			tunnit = hDAO.haeTunnit();
 		} catch (Exception e) {
-			
+
 		}
 		request.setAttribute("tunnit", tunnit);
 		request.getRequestDispatcher("tuntilista.jsp").forward(request, response);
-		
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		 
 	}
 
 }
