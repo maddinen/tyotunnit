@@ -33,7 +33,7 @@ public class TuntiDAO {
 			Class.forName("org.mariadb.jdbc.Driver").newInstance();
 			String username = "a1500882";
 			String password = "suXAsP63h";
-			String url = "jdbc:mariadb://localhost:15001/a1500882";
+			String url = "jdbc:mariadb://localhost:15002/a1500882";
 			try {
 				yhteys = DriverManager.getConnection(url, username, password);
 			} catch (SQLException e) {
