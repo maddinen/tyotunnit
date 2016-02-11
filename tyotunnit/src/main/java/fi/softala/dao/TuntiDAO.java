@@ -33,7 +33,7 @@ public class TuntiDAO {
 			Class.forName("org.mariadb.jdbc.Driver").newInstance();
 			String username = "a1500882";
 			String password = "suXAsP63h";
-			String url = "jdbc:mariadb://localhost:15002/a1500882";
+			String url = "jdbc:mariadb://localhost:15001/a1500882";
 			try {
 				yhteys = DriverManager.getConnection(url, username, password);
 			} catch (SQLException e) {
@@ -76,13 +76,13 @@ public class TuntiDAO {
 			PreparedStatement haku = yhteys.prepareStatement(sql);
 			ResultSet tulokset = haku.executeQuery();
 
-			// kï¿½ydï¿½ï¿½n hakutulokset lï¿½pi
+			// käydään hakutulokset läpi
 			while (tulokset.next()) {
 				Date pvm = tulokset.getDate("pvm"); // tietotyyppi?!
 				double tuntien_maara = tulokset.getDouble("tuntien_maara");
 				String kommentti = tulokset.getString("kommentti");
 
-				// lisï¿½tï¿½ï¿½n tulos listaan
+				// lisätään tulos listaan
 				Tunti h = new Tunti(pvm, tuntien_maara, kommentti);
 				tunnit.add(h);
 			}

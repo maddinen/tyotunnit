@@ -1,5 +1,6 @@
 package fi.softala.servlet;
 
+import java.util.List;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.omg.CORBA.Request;
+
+import fi.softala.bean.Tunti;
+import fi.softala.dao.TuntiDAO;
 
 /**
  * Servlet implementation class LoginServlet
@@ -32,6 +36,18 @@ public class TunnitServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
 		disp.forward(request, response);
+		
+		List<Tunti> tunnit = null;
+		
+		try {
+			TuntiDAO hDAO = new TuntiDAO();
+			tunnit = hDAO.haeTunnit();
+		} catch (Exception e) {
+			
+		}
+		request.setAttribute("tunnit", tunnit);
+		request.getRequestDispatcher("tuntilista.jsp").forward(request, response);
+		
 	}
 
 	/**
