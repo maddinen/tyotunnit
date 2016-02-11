@@ -1,10 +1,18 @@
 package fi.softala.servlet;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fi.softala.bean.InvalidKayttajaPoikkeus;
+import fi.softala.bean.Kayttaja;
+import fi.softala.dao.DAOPoikkeus;
+import fi.softala.dao.KayttajaDAO;
 
 /**
  * Servlet implementation class RekisteroitymisServlet

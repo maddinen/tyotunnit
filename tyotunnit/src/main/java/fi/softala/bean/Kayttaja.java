@@ -43,6 +43,10 @@ public class Kayttaja {
 		this.suola = suola;
 	}
 
+	public Kayttaja() {
+		
+	}
+
 	public String getKayttajatunnus() {
 		return kayttajatunnus;
 	}
