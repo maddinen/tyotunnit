@@ -13,6 +13,7 @@ import fi.softala.bean.InvalidKayttajaPoikkeus;
 import fi.softala.bean.Kayttaja;
 import fi.softala.dao.DAOPoikkeus;
 import fi.softala.dao.KayttajaDAO;
+import fi.softala.dao.KayttajaDAOImpl;
 
 /**
  * Servlet implementation class RekisteroitymisServlet
@@ -57,7 +58,7 @@ public class RekisteroitymisServlet extends HttpServlet {
 			// luodaan käyttäjä suolalla ja hashilla
 			Kayttaja kayttaja = new Kayttaja(kayttajatunnus, salasana, salasana2);
 			// lisätään tietokantaan
-			KayttajaDAO dao = new KayttajaDAO();
+			KayttajaDAOImpl dao = new KayttajaDAOImpl();
 			dao.rekisteroi(kayttaja);
 
 			// takaisin onnistumisviestillä
@@ -71,9 +72,7 @@ public class RekisteroitymisServlet extends HttpServlet {
 			 * " on jo varattu, valitse toinen käyttäjätunnus!";
 			 * takaisinVirheviestilla(virheviesti, kayttajatunnus, request,
 			 * response); }
-			 */catch (DAOPoikkeus e) {
-			throw new ServletException("Tietokantavirhe", e);
-		} catch (NoSuchAlgorithmException e) {
+			 */catch (NoSuchAlgorithmException e) {
 			throw new ServletException("Salausalgoritmia ei löydy.", e);
 		}
 	}

@@ -1,6 +1,7 @@
 package fi.softala.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.JDBCType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +14,8 @@ import fi.softala.bean.Kayttaja;
 
 public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 
-	@Inject
+
+	private Connection yhteys;
 	private JdbcTemplate jdbcTemplate;
 
 	public JdbcTemplate getJdbcTemplate() {
@@ -28,18 +30,16 @@ public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 	 * Luo uuden käyttäjän tietokantaan
 	 */
 	public void rekisteroi(Kayttaja kayttaja) {
-
-		Connection yhteys = avaaYhteys();
-
+		avaaYhteys();
 		try {
 
 			// tarkistetaan, että usernamella ei jo löydy käyttäjää
 			PreparedStatement kayttajatunnusHaku = yhteys
-					.prepareStatement("SELECT id FROM Kayttajat WHERE kayttajatunnus = ?");
+					.prepareStatement("SELECT kayttajatunnus FROM Kayttajat WHERE kayttajatunnus = ?");
 			kayttajatunnusHaku.setString(1, kayttaja.getKayttajatunnus());
 			ResultSet rs = kayttajatunnusHaku.executeQuery();
 			if (rs.next())
-				throw new UsernameVarattuPoikkeus();
+				//throw new UsernameVarattuPoikkeus();
 
 			// suoritetaan lisäys
 			PreparedStatement ps = yhteys.prepareStatement(
@@ -58,9 +58,25 @@ public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
 		} finally {
 			// LOPULTA AINA SULJETAAN YHTEYS
-			suljeYhteys(yhteys);
+			suljeYhteys();
 		}
 
+	}
+
+	private void avaaYhteys() {
+		try {
+			Class.forName("org.mariadb.jdbc.Driver").newInstance();
+			String username = "a1500882";
+			String password = "suXAsP63h";
+			String url = "jdbc:mariadb://localhost:15001/a1500882";
+			try {
+				Connection yhteys = DriverManager.getConnection(url, username, password);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -92,5 +108,13 @@ public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 
 		return kayttajat;
 
+	}
+	
+	public void suljeYhteys() {
+		try {
+			yhteys.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
