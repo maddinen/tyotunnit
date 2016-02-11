@@ -2,7 +2,9 @@ package fi.softala.servlet;
 
 import java.util.List;
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -59,10 +61,26 @@ public class TunnitServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String pvm = request.getParameter("pvm");
-		//tuntien_maara
-		//kommentti
+		String pvmStr = request.getParameter("pvm");
+		SimpleDateFormat pvmFormat = new SimpleDateFormat("dd.MM");
+		Date pvm = new Date();
+		try {
+			pvm = pvmFormat.parse(pvmStr);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		String tuntien_maaraStr = request.getParameter("tuntien_maara");
+		double tuntien_maara = Double.parseDouble(tuntien_maaraStr);
+		String kommentti = request.getParameter("kommentti");
 		 
+		Tunti h = new Tunti(pvm, tuntien_maara, kommentti);
+		try {
+			TuntiDAO hDAO = new TuntiDAO();
+			hDAO.lisaaTunti(h);
+		} catch (Exception e){
+			
+		}
+		response.sendRedirect("index.jsp");
 	}
 
 }

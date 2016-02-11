@@ -97,4 +97,24 @@ public class TuntiDAO {
 
 	}
 
+	public void lisaaTunti(Tunti h) {
+		avaaYhteys();
+
+		try {
+			String sql = "";
+			PreparedStatement lause = yhteys.prepareStatement(sql);
+			lause.setDate(1, (Date) h.getPaivamaara());
+			lause.setDouble(2, h.getMaara());
+			lause.setString(2, h.getSelite());
+			
+			lause.executeUpdate();
+			System.out.println("LISÄTTIIN TUNTITIETO TIETOKANTAAN: " +h);
+			
+		} catch (Exception e) {
+
+		} finally {
+			suljeYhteys();
+		}
+	}
+
 }
