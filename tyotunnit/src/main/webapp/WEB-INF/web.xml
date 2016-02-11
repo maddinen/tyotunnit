@@ -19,4 +19,14 @@
     <servlet-name>TunnitServlet</servlet-name>
     <url-pattern>/TunnitServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RekisteroitymisServlet</display-name>
+    <servlet-name>RekisteroitymisServlet</servlet-name>
+    <servlet-class>fi.softala.servlet.RekisteroitymisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RekisteroitymisServlet</servlet-name>
+    <url-pattern>/RekisteroitymisServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

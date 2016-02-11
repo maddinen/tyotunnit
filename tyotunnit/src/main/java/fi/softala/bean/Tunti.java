@@ -7,7 +7,7 @@ public class Tunti {
 	private String selite;
 	private Date paivamaara;
 	private Kayttaja henkilo;
-	
+
 	public Tunti() {
 		super();
 	}
@@ -18,7 +18,7 @@ public class Tunti {
 		this.maara = maara;
 		this.selite = selite;
 	}
-	
+
 	public Tunti(double maara, Date paivamaara, Kayttaja henkilo) {
 		super();
 		this.maara = maara;
@@ -52,8 +52,7 @@ public class Tunti {
 
 	@Override
 	public String toString() {
-		return "Tunti [maara=" + maara + ", paivamaara=" + paivamaara
-				+ ", henkilo=" + henkilo + "]";
+		return "Tunti [maara=" + maara + ", paivamaara=" + paivamaara + ", henkilo=" + henkilo + "]";
 	}
 
 }
