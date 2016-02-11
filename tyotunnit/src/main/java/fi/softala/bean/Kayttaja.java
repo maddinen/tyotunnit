@@ -1,5 +1,10 @@
 package fi.softala.bean;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
+import fi.softala.security.Salaaja;
+
 /**
  * 
  * @author Katri Vilonen
@@ -12,18 +17,18 @@ public class Kayttaja {
 	private static final int SALAUS_KIERROKSIA = 100;
 
 	public Kayttaja(String kayttajatunnus, String salasana, String salasana2)
-			throws NoSuchAlgorithmException, UnsupportedEncodingException {
+			throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKayttajaPoikkeus {
 		super();
 
 		validoi(kayttajatunnus, salasana, salasana2);
 
-		this.username = kayttajatunnus;
+		this.kayttajatunnus = kayttajatunnus;
 
 		// generoidaan suola
 		String suola = Salaaja.generoiSuola();
-		setSalt(suola);
+		setSuola(suola);
 		// kryptataan salasana
-		String kryptattuSalasana = Salaaja.salaa(salasana, getSalt(), SALAUS_ALGORITMI, SALAUS_KIERROKSIA);
+		String kryptattuSalasana = Salaaja.salaa(salasana, getSuola(), SALAUS_ALGORITMI, SALAUS_KIERROKSIA);
 		setSalasana(kryptattuSalasana);
 	}
 
