@@ -6,7 +6,7 @@ public class Tunti {
 	private double maara;
 	private String selite;
 	private Date paivamaara;
-	private Kayttaja henkilo;
+	private Kayttaja kayttaja;
 
 	public Tunti() {
 		super();
@@ -19,11 +19,11 @@ public class Tunti {
 		this.selite = selite;
 	}
 
-	public Tunti(double maara, Date paivamaara, Kayttaja henkilo) {
+	public Tunti(double maara, Date paivamaara, Kayttaja kayttaja) {
 		super();
 		this.maara = maara;
 		this.paivamaara = paivamaara;
-		this.henkilo = henkilo;
+		this.kayttaja = kayttaja;
 	}
 
 	public double getMaara() {
@@ -32,6 +32,14 @@ public class Tunti {
 
 	public void setMaara(double maara) {
 		this.maara = maara;
+	}
+	
+	public String getSelite() {
+		return selite;
+	}
+
+	public void setSelite(String selite) {
+		this.selite = selite;
 	}
 
 	public Date getPaivamaara() {
@@ -42,17 +50,17 @@ public class Tunti {
 		this.paivamaara = paivamaara;
 	}
 
-	public Kayttaja getHenkilo() {
-		return henkilo;
+	public Kayttaja getKayttaja() {
+		return kayttaja;
 	}
 
-	public void setHenkilo(Kayttaja henkilo) {
-		this.henkilo = henkilo;
+	public void setkayttaja(Kayttaja kayttaja) {
+		this.kayttaja = kayttaja;
 	}
 
 	@Override
 	public String toString() {
-		return "Tunti [maara=" + maara + ", paivamaara=" + paivamaara + ", henkilo=" + henkilo + "]";
+		return "Tunti [maara=" + maara + ", paivamaara=" + paivamaara + ", kayttaja=" + kayttaja + "]";
 	}
 
 }
