@@ -3,10 +3,12 @@ package fi.softala.bean;
 import java.util.Date;
 
 public class Tunti {
+	private Kayttaja kayttaja;
+	private Date paivamaara;
 	private double maara;
 	private String selite;
-	private Date paivamaara;
-	private Kayttaja kayttaja;
+	
+	
 
 	public Tunti() {
 		super();
@@ -26,20 +28,12 @@ public class Tunti {
 		this.kayttaja = kayttaja;
 	}
 
-	public double getMaara() {
-		return maara;
+	public Kayttaja getKayttaja() {
+		return kayttaja;
 	}
 
-	public void setMaara(double maara) {
-		this.maara = maara;
-	}
-	
-	public String getSelite() {
-		return selite;
-	}
-
-	public void setSelite(String selite) {
-		this.selite = selite;
+	public void setKayttaja(Kayttaja kayttaja) {
+		this.kayttaja = kayttaja;
 	}
 
 	public Date getPaivamaara() {
@@ -50,17 +44,27 @@ public class Tunti {
 		this.paivamaara = paivamaara;
 	}
 
-	public Kayttaja getKayttaja() {
-		return kayttaja;
+	public double getMaara() {
+		return maara;
 	}
 
-	public void setkayttaja(Kayttaja kayttaja) {
-		this.kayttaja = kayttaja;
+	public void setMaara(double maara) {
+		this.maara = maara;
+	}
+
+	public String getSelite() {
+		return selite;
+	}
+
+	public void setSelite(String selite) {
+		this.selite = selite;
 	}
 
 	@Override
 	public String toString() {
-		return "Tunti [maara=" + maara + ", paivamaara=" + paivamaara + ", kayttaja=" + kayttaja + "]";
+		return "Tunti [kayttaja=" + kayttaja + ", paivamaara=" + paivamaara + ", maara=" + maara + ", selite=" + selite
+				+ "]";
 	}
 
+	
 }

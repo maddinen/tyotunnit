@@ -8,12 +8,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.swing.tree.RowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import fi.softala.bean.Kayttaja;
 
-public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
-
+public class KayttajaDAOImpl implements KayttajaDAO {
 
 	private Connection yhteys;
 	private JdbcTemplate jdbcTemplate;
@@ -25,6 +25,7 @@ public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
 
 	/*
 	 * Luo uuden käyttäjän tietokantaan
@@ -38,24 +39,23 @@ public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 					.prepareStatement("SELECT kayttajatunnus FROM Kayttajat WHERE kayttajatunnus = ?");
 			kayttajatunnusHaku.setString(1, kayttaja.getKayttajatunnus());
 			ResultSet rs = kayttajatunnusHaku.executeQuery();
-			if (rs.next())
-				//throw new UsernameVarattuPoikkeus();
+			if (rs.next()) {
+				// throw new UsernameVarattuPoikkeus();
 
-			// suoritetaan lisäys
-			PreparedStatement ps = yhteys.prepareStatement(
-					"INSERT INTO Kayttajat(etunimi, sukunimi, email, kayttajatunnus, salasana, suola) values(?,?,?,?,?,?)");
-			ps.setString(1, kayttaja.getEtunimi());
-			ps.setString(2, kayttaja.getSukunimi());
-			ps.setString(3, kayttaja.getEmail());
-			ps.setString(4, kayttaja.getKayttajatunnus());
-			ps.setString(5, kayttaja.getSalasana());
-			ps.setString(6, kayttaja.getSuola());
+				// suoritetaan lisäys
+				PreparedStatement ps = yhteys.prepareStatement(
+						"INSERT INTO Kayttajat(etunimi, sukunimi, email, kayttajatunnus, salasana, suola) values(?,?,?,?,?,?)");
+				ps.setString(1, kayttaja.getEtunimi());
+				ps.setString(2, kayttaja.getSukunimi());
+				ps.setString(3, kayttaja.getEmail());
+				ps.setString(4, kayttaja.getKayttajatunnus());
+				ps.setString(5, kayttaja.getSalasana());
+				ps.setString(6, kayttaja.getSuola());
 
-			ps.executeUpdate();
-
+				ps.executeUpdate();
+			}
 		} catch (SQLException e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
-			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
 		} finally {
 			// LOPULTA AINA SULJETAAN YHTEYS
 			suljeYhteys();
@@ -87,13 +87,7 @@ public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 		Object[] parametrit = new Object[] { kayttajatunnus };
 		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
 
-		Kayttaja k;
-
-		try {
-			k = jdbcTemplate.queryForObject(sql, parametrit, mapper);
-		} catch (Exception e) {
-
-		}
+		Kayttaja k = jdbcTemplate.queryForObject(sql, parametrit, mapper);
 		return k;
 	}
 
@@ -109,7 +103,7 @@ public class KayttajaDAOImpl<JdbcTemplate> implements KayttajaDAO {
 		return kayttajat;
 
 	}
-	
+
 	public void suljeYhteys() {
 		try {
 			yhteys.close();

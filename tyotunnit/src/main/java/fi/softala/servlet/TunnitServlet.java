@@ -1,4 +1,4 @@
-package fi.softala.servlet;
+/*package fi.softala.servlet;
 
 import java.util.List;
 import java.io.IOException;
@@ -20,23 +20,23 @@ import fi.softala.dao.TuntiDAO;
 
 /**
  * Servlet implementation class LoginServlet
- */
+ *//*
 @WebServlet("/LoginServlet")
 public class TunnitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
-	 */
+	 *//*
 	public TunnitServlet() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	}*/
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
-	 */
+	 *//*
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
@@ -53,12 +53,12 @@ public class TunnitServlet extends HttpServlet {
 		request.setAttribute("tunnit", tunnit);
 		request.getRequestDispatcher("tuntilista.jsp").forward(request, response);
 
-	}
+	}*/
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
-	 */
+	 *//*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pvmStr = request.getParameter("pvm");
@@ -83,4 +83,4 @@ public class TunnitServlet extends HttpServlet {
 		response.sendRedirect("index.jsp");
 	}
 
-}
+}*/

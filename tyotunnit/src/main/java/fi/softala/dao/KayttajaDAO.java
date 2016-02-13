@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface KayttajaDAO {
 
-	public abstract void rekisteroi(Kayttaja kayttaja);
+	public abstract void rekisteroi(Kayttaja kayttaja) throws DAOPoikkeus;
 
 	public abstract Kayttaja etsiKayttaja(String kayttajatunnus);
 

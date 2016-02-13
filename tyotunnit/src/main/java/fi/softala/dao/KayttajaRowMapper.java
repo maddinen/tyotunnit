@@ -3,7 +3,7 @@ package fi.softala.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.tree.RowMapper;
+import org.springframework.jdbc.core.RowMapper;
 
 import fi.softala.bean.Kayttaja;
 

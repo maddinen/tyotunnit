@@ -29,4 +29,14 @@
     <servlet-name>RekisteroitymisServlet</servlet-name>
     <url-pattern>/RekisteroitymisServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Kontrolleri</display-name>
+    <servlet-name>Kontrolleri</servlet-name>
+    <servlet-class>fi.softala.servlet.Kontrolleri</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Kontrolleri</servlet-name>
+    <url-pattern>/Kontrolleri</url-pattern>
+  </servlet-mapping>
 </web-app>

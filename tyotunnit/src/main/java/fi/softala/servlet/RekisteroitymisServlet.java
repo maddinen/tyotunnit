@@ -1,4 +1,4 @@
-package fi.softala.servlet;
+/*package fi.softala.servlet;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +17,7 @@ import fi.softala.dao.KayttajaDAOImpl;
 
 /**
  * Servlet implementation class RekisteroitymisServlet
- */
+ *//*
 @WebServlet("/rekisteroidy")
 public class RekisteroitymisServlet extends HttpServlet {
 
@@ -27,7 +27,7 @@ public class RekisteroitymisServlet extends HttpServlet {
 
 	/**
 	 * Default constructor.
-	 */
+	 *//*
 	public RekisteroitymisServlet() {
 		// TODO Auto-generated constructor stub
 	}
@@ -35,7 +35,7 @@ public class RekisteroitymisServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
-	 */
+	 *//*
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.getRequestDispatcher(FRONT_PAGE).forward(request, response);
@@ -44,7 +44,7 @@ public class RekisteroitymisServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
-	 */
+	 *//*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String etunimi = request.getParameter("etunimi");
@@ -72,7 +72,7 @@ public class RekisteroitymisServlet extends HttpServlet {
 			 * " on jo varattu, valitse toinen käyttäjätunnus!";
 			 * takaisinVirheviestilla(virheviesti, kayttajatunnus, request,
 			 * response); }
-			 */catch (NoSuchAlgorithmException e) {
+			 *//*catch (NoSuchAlgorithmException e) {
 			throw new ServletException("Salausalgoritmia ei löydy.", e);
 		}
 	}
@@ -85,4 +85,4 @@ public class RekisteroitymisServlet extends HttpServlet {
 
 	}
 
-}
+}*/
