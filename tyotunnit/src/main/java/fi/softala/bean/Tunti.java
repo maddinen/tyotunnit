@@ -3,37 +3,29 @@ package fi.softala.bean;
 import java.util.Date;
 
 public class Tunti {
-	private Kayttaja kayttaja;
+	private int kayttaja_id;
 	private Date paivamaara;
-	private double maara;
+	private double tuntien_maara;
 	private String selite;
-	
-	
 
 	public Tunti() {
 		super();
 	}
 
-	public Tunti(Date paivamaara, double maara, String selite) {
+	public Tunti(int kayttaja_id, Date paivamaara, double tuntien_maara, String selite) {
 		super();
+		this.kayttaja_id = kayttaja_id;
 		this.paivamaara = paivamaara;
-		this.maara = maara;
+		this.tuntien_maara = tuntien_maara;
 		this.selite = selite;
 	}
 
-	public Tunti(double maara, Date paivamaara, Kayttaja kayttaja) {
-		super();
-		this.maara = maara;
-		this.paivamaara = paivamaara;
-		this.kayttaja = kayttaja;
+	public int getKayttaja_id() {
+		return kayttaja_id;
 	}
 
-	public Kayttaja getKayttaja() {
-		return kayttaja;
-	}
-
-	public void setKayttaja(Kayttaja kayttaja) {
-		this.kayttaja = kayttaja;
+	public void setKayttaja_id(int kayttaja_id) {
+		this.kayttaja_id = kayttaja_id;
 	}
 
 	public Date getPaivamaara() {
@@ -44,12 +36,12 @@ public class Tunti {
 		this.paivamaara = paivamaara;
 	}
 
-	public double getMaara() {
-		return maara;
+	public double getTuntien_maara() {
+		return tuntien_maara;
 	}
 
-	public void setMaara(double maara) {
-		this.maara = maara;
+	public void setTuntien_maara(double tuntien_maara) {
+		this.tuntien_maara = tuntien_maara;
 	}
 
 	public String getSelite() {
@@ -62,9 +54,8 @@ public class Tunti {
 
 	@Override
 	public String toString() {
-		return "Tunti [kayttaja=" + kayttaja + ", paivamaara=" + paivamaara + ", maara=" + maara + ", selite=" + selite
-				+ "]";
+		return "Tunti [kayttaja_id=" + kayttaja_id + ", paivamaara=" + paivamaara + ", tuntien_maara=" + tuntien_maara
+				+ ", selite=" + selite + "]";
 	}
 
-	
 }

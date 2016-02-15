@@ -10,26 +10,27 @@
 <body>
 
 	<!--  <form action="tunnit" method="post">-->
-		<table>
-			<h1>Tunnit</h1>
-			<thead>
+	<table>
+		<h1>Tunnit</h1>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>PVM</td>
+				<td>Tunnit</td>
+				<td>Selite</td>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${tunnit}" var="h">
 				<tr>
-					<td>ID</td>
-					<td>PVM</td>
-					<td>Tunnit</td>
-					<td>Selite</td>
+					<td><c:out value="${h.kayttaja_id}" /></td>
+					<td><c:out value="${h.pvm}" /></td>
+					<td><c:out value="${h.tuntien_maara}" /></td>
+					<td><c:out value="${h.selite}" /></td>
 				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${tunnit}" var="h">
-					<tr>
-						<td><c:out value="${h.pvm}" /></td>
-						<td><c:out value="${h.tuntien_maara}" /></td>
-						<td><c:out value="${h.kommentti}" /></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+			</c:forEach>
+		</tbody>
+	</table>
 	<!--  </form>-->
 
 </body>

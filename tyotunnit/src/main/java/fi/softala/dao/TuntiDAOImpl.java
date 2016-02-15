@@ -1,12 +1,6 @@
 package fi.softala.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -32,7 +26,7 @@ public class TuntiDAOImpl implements TuntiDAO {
 	}
 
 	public List<Tunti> haeTunnit() {
-		String sql = "select pvm, tuntien_maara, kommentti from Tunnit;";
+		String sql = "select kayttaja_id, pvm, tuntien_maara, selite from Tunnit;";
 		RowMapper<Tunti> mapper = new TuntiRowMapper();
 		List<Tunti> tunnit = jdbcTemplate.query(sql, mapper);
 
@@ -41,8 +35,8 @@ public class TuntiDAOImpl implements TuntiDAO {
 	}
 
 	public void lisaaTunti(Tunti h) {
-		String sql = "insert into Tunnit(pvm, tuntien_maara, kommentti) values(?,?,?)";
-		Object[] parametrit = new Object[] { h.getPaivamaara(), h.getMaara(), h.getSelite() };
+		String sql = "insert into Tunnit(kayttaja_id, pvm, tuntien_maara, selite) values(?,?,?)";
+		Object[] parametrit = new Object[] { h.getKayttaja_id(), h.getPaivamaara(), h.getTuntien_maara(), h.getSelite() };
 		jdbcTemplate.update(sql, parametrit);
 
 		System.out.println("LISÄTTIIN TUNTITIETO TIETOKANTAAN: " + h);

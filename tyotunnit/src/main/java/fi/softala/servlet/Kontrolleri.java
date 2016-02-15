@@ -2,6 +2,7 @@ package fi.softala.servlet;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,7 +35,8 @@ public class Kontrolleri extends HttpServlet {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"spring-config.xml");
 		TuntiDAO dao = (TuntiDAO) context.getBean("tuntidao");
-		ArrayList<Tunti> tunnit = (ArrayList<Tunti>) dao.haeTunnit();
+		List<Tunti> tunnit = dao.haeTunnit();
+		// tallennetaan request olion alle tuntilista
 		request.setAttribute("tunnit", tunnit);
 		
 		RequestDispatcher disp = request.getRequestDispatcher("tuntilista.jsp");
@@ -50,6 +52,10 @@ public class Kontrolleri extends HttpServlet {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"spring-config.xml");
 		TuntiDAO dao = (TuntiDAO) context.getBean("tuntidao");
+		
+		
+		/*String kayttaja_idStr = request.getParameter("kayttaja_id");
+		int kayttaja_id = Integer.parseInt(kayttaja_idStr);
 		String pvmStr = request.getParameter("pvm");
 		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 		try {
@@ -60,10 +66,10 @@ public class Kontrolleri extends HttpServlet {
 		}
 		String maaraStr = request.getParameter("tuntien_maara");
 		double tuntien_maara = Double.parseDouble(maaraStr);
-		String selite = request.getParameter("kommentti");
+		String selite = request.getParameter("selite");
 		Tunti h = new Tunti();
 
-		doGet(request, response);
+		doGet(request, response);*/
 	}
 
 }
