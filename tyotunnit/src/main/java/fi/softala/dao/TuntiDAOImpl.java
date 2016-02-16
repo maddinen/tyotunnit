@@ -33,17 +33,16 @@ public class TuntiDAOImpl implements TuntiDAO {
 		String sql = "select kayttaja_id, pvm, tuntien_maara, selite from Tunnit;";
 		RowMapper<Tunti> mapper = new TuntiRowMapper();
 		List<Tunti> tunnit = jdbcTemplate.query(sql, mapper);
-
-		System.out.println("HAETTIIN TIETOKANNASTA TUNNIT: " + tunnit.toString());
+		System.out.println("HAETTIIN TIETOKANNASTA TUNNIT: \n" + tunnit.toString());
 		return tunnit;
 	}
 
 	public void lisaaTunti(Tunti h) {
-		String sql = "insert into Tunnit(kayttaja_id, pvm, tuntien_maara, selite) values(?,?,?)";
+		String sql = "insert into Tunnit(kayttaja_id, pvm, tuntien_maara, selite) values(?,?,?,?)";
 		Object[] parametrit = new Object[] { h.getKayttaja_id(), h.getPaivamaara(), h.getTuntien_maara(), h.getSelite() };
 		jdbcTemplate.update(sql, parametrit);
 
-		System.out.println("LISÄTTIIN TUNTITIETO TIETOKANTAAN: " + h);
+		System.out.println("LISÄTTIIN TUNTITIETO TIETOKANTAAN: \n" + h);
 
 	}
 

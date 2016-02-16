@@ -54,8 +54,8 @@ public class Tunti {
 
 	@Override
 	public String toString() {
-		return "Tunti [kayttaja_id=" + kayttaja_id + ", paivamaara=" + paivamaara + ", tuntien_maara=" + tuntien_maara
-				+ ", selite=" + selite + "]";
+		return "kayttaja_id:" + kayttaja_id + "\n paivamaara:" + paivamaara + "\n tuntien_maara:" + tuntien_maara
+				+ "\n selite:" + selite + "\n\n";
 	}
 
 }
