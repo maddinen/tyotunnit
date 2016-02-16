@@ -13,6 +13,10 @@ public class TuntiDAOImpl implements TuntiDAO {
 	private Connection yhteys;
 	private JdbcTemplate jdbcTemplate;
 
+	public TuntiDAOImpl() {
+		super();
+	}
+
 	public TuntiDAOImpl(DataSource datasource) {
 		jdbcTemplate = new JdbcTemplate(datasource);
 	}
