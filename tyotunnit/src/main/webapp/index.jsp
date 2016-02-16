@@ -8,11 +8,11 @@
 </head>
 <body>
 	<h1>Lisää työtunnit</h1>
-	<form>
-		Tunnus*<br> <input type="text" name="kayttaja_id"><br>
-		Pvm <br> <input type="text" name="pvm"><br>
-		Tunnit*<br> <input type="text" name="tuntien_maara"><br>
-		Selite<br> <textarea name="selite"></textarea><br>
+	<form method="post">
+		Tunnus:<br> <input type="text" name="kayttaja_id"><br>
+		Pvm:<br> <input type="text" name="pvm"><br>
+		Tunnit:<br> <input type="text" name="tuntien_maara"><br>
+		Selite:<br> <textarea name="selite"></textarea><br>
 		<input type="submit" value="Tallenna">
 	</form>
 	<br>

@@ -11,6 +11,7 @@ import fi.softala.bean.Tunti;
  */
 public interface TuntiDAO {
 	public abstract List<Tunti> haeTunnit();
+	public abstract List<Tunti> haeKayttajanTunnit(int kayttaja_id);
 	public abstract void lisaaTunti(Tunti h);
 
 }

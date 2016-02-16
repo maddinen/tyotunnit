@@ -28,7 +28,8 @@ public class TuntiHandler {
 		while (arvo != 0) {
 			System.out.println("-------------------");
 			System.out.println("1) Kirjaa tuntisi");
-			System.out.println("2) Tarkastele tunteja");
+			System.out.println("2) Tarkastele kaikkia tunteja");
+			System.out.println("3) Tarkastele tietyn k‰ytt‰j‰n tunteja");
 			System.out.println("0) Lopeta");
 			System.out.println("Tee valinta: ");
 			arvo = scanner.nextInt();
@@ -71,7 +72,17 @@ public class TuntiHandler {
 				System.out.println("-------------------");
 
 				List<Tunti> tunnit = dao.haeTunnit();
-				for (Tunti s : tunnit) {
+				for (Tunti h : tunnit) {
+				}
+				break;
+
+			case 3:
+				System.out.println("Anna k‰ytt‰j‰ID (1-3):");
+				int no = scanner.nextInt();
+				scanner.nextLine();
+
+				List<Tunti> kayttajanTunnit = dao.haeKayttajanTunnit(no);
+				for (Tunti h : kayttajanTunnit) {
 				}
 				break;
 

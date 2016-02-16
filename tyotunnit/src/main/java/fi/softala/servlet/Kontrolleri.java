@@ -34,8 +34,8 @@ public class Kontrolleri extends HttpServlet {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"spring-config.xml");
-		TuntiDAO dao = (TuntiDAO) context.getBean("tuntidao");
-		List<Tunti> tunnit = dao.haeTunnit();
+		TuntiDAO dao = (TuntiDAO) context.getBean("daoLuokka");
+		ArrayList<Tunti> tunnit = (ArrayList<Tunti>)dao.haeTunnit();
 		// tallennetaan request olion alle tuntilista
 		request.setAttribute("tunnit", tunnit);
 		
@@ -51,25 +51,32 @@ public class Kontrolleri extends HttpServlet {
 		System.out.println("Kontrolleri.doPost()");
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"spring-config.xml");
-		TuntiDAO dao = (TuntiDAO) context.getBean("tuntidao");
+		TuntiDAO dao = (TuntiDAO) context.getBean("daoLuokka");
 		
-		
-		/*String kayttaja_idStr = request.getParameter("kayttaja_id");
+		//KAYTTAJA_ID
+		String kayttaja_idStr = request.getParameter("kayttaja_id");
 		int kayttaja_id = Integer.parseInt(kayttaja_idStr);
+		//PAIVAMAARA
 		String pvmStr = request.getParameter("pvm");
 		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+		Date pvm = new Date();
 		try {
-			Date pvm = format.parse(pvmStr);
+			pvm = format.parse(pvmStr);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//TUNTIEN MAARA
 		String maaraStr = request.getParameter("tuntien_maara");
 		double tuntien_maara = Double.parseDouble(maaraStr);
+		//SELITE
 		String selite = request.getParameter("selite");
-		Tunti h = new Tunti();
+		Tunti h = new Tunti(kayttaja_id, pvm, tuntien_maara, selite);
+		dao.lisaaTunti(h);
 
-		doGet(request, response);*/
+		String jsp = "/tuntilista.jsp";
+        RequestDispatcher dispather = getServletContext().getRequestDispatcher(jsp);
+        dispather.forward(request, response);
+		//doGet(request, response);
 	}
 
 }

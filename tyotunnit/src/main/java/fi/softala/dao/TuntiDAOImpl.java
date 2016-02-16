@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import fi.softala.bean.Tunti;
@@ -36,7 +37,15 @@ public class TuntiDAOImpl implements TuntiDAO {
 		System.out.println("HAETTIIN TIETOKANNASTA TUNNIT: \n" + tunnit.toString());
 		return tunnit;
 	}
-
+	
+	public List<Tunti> haeKayttajanTunnit(int kayttaja_id) {
+		String sql = "select kayttaja_id, pvm, tuntien_maara, selite from Tunnit where kayttaja_id = ?";
+		List<Tunti> kayttajanTunnit = getJdbcTemplate().query(sql, ParameterizedBeanPropertyRowMapper.newInstance(Tunti.class));
+		System.out.println("HAETTIIN TIETOKANNASTA TUNNIT: \n" + kayttajanTunnit.toString());
+		return kayttajanTunnit;
+	}
+	
+	
 	public void lisaaTunti(Tunti h) {
 		String sql = "insert into Tunnit(kayttaja_id, pvm, tuntien_maara, selite) values(?,?,?,?)";
 		Object[] parametrit = new Object[] { h.getKayttaja_id(), h.getPaivamaara(), h.getTuntien_maara(), h.getSelite() };
