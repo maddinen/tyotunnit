@@ -20,8 +20,8 @@
 				<form:input path="kayttaja_id" />
 			</p>
 			<p>
-				<form:label path="pvm">Pvm:</form:label><br />
-				<form:input path="pvm" />
+				<form:label path="paivamaara">Pvm:</form:label><br />
+				<form:input path="paivamaara" />
 			</p>
 			<p>
 				<form:label path="tuntien_maara">Tunnit:</form:label><br/>

@@ -26,7 +26,7 @@ import fi.softala.yellow.dao.TuntiDAO;
  */
 
 @Controller
-@RequestMapping (value="/")
+@RequestMapping (value="/tunti")
 public class Kontrolleri {
 	//pitää servletin virkaa, websovelluksessa on aina oltava servlet
 	@Inject
@@ -41,7 +41,7 @@ public class Kontrolleri {
 	}
 	
 	//TYHJÄ FORM
-	@RequestMapping (value="/uusi", method=RequestMethod.GET)
+	@RequestMapping (value="uusi", method=RequestMethod.GET)
 	public String getCreateForm(Model model) {
 		Tunti tyhjaTunti = new Tunti();
 		//tyhjaTunti.setKayttaja_id(kayttaja_id);
@@ -50,11 +50,11 @@ public class Kontrolleri {
 		//tyhjaTunti.setSelite(selite);
 		
 		model.addAttribute("tunti", tyhjaTunti);
-		return "/";
+		return "index";
 	}
 	
 	//FORMIN TIETOJEN VASTAANOTTO
-	@RequestMapping (value="/uusi", method=RequestMethod.POST)
+	@RequestMapping (value="uusi", method=RequestMethod.POST)
 	public String create(@ModelAttribute(value="tunti") Tunti tunti) {
 		hdao.lisaaTunti(tunti);
 		return "redirect:/tuntilista";
