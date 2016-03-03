@@ -27,7 +27,7 @@ import fi.softala.yellow.dao.TuntiDAO;
 
 @Controller
 @RequestMapping (value="/tunti")
-public class Kontrolleri {
+public class TuntienLisaysKontrolleri {
 	//pit‰‰ servletin virkaa, websovelluksessa on aina oltava servlet
 	@Inject
 	private TuntiDAO hdao;
@@ -50,7 +50,7 @@ public class Kontrolleri {
 		//tyhjaTunti.setSelite(selite);
 		
 		model.addAttribute("tunti", tyhjaTunti);
-		return "index";
+		return "form";
 	}
 	
 	//FORMIN TIETOJEN VASTAANOTTO

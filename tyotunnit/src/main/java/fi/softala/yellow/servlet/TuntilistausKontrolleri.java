@@ -47,7 +47,7 @@ public class TuntilistausKontrolleri {
 	@RequestMapping (value="/lista", method=RequestMethod.GET)
 	public String getView(Map<String, Object> model) {
 		model.put("tunnit", hdao.haeTunnit());
-		return "tuntilista";
+		return "hourlist";
 	
 	}
 }
