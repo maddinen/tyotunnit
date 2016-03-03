@@ -1,5 +1,6 @@
 package fi.softala.yellow.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -14,8 +15,11 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.fasterxml.jackson.core.JsonFactory;
+
 import fi.softala.yellow.dao.TuntiDAO;
 import fi.softala.yellow.dao.TuntiRowMapper;
+import com.fasterxml.jackson.core.JsonParseException;
 import fi.softala.yellow.bean.Tunti;
 
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
@@ -42,19 +46,24 @@ public class TuntiDAOImpl implements TuntiDAO {
 	 * Tallettaa parametrina annetun tuntitiedon tietokantaan. Tietokannan
 	 * generoima id asetetaan parametrina annettuun olioon.
 	 */
+	
+	/*public void lisaaTunti(String json) throws JsonParseException, IOException{
+		JsonFactory jf = new JsonFactory();
+	}*/
+	
 	public void lisaaTunti(Tunti h) {
 		final String sql = "insert into Tunnit(kayttaja_id, pvm, tuntien_maara, selite) values(?,?,?,?)";
 
-		// tehd√§√§n muuttujat ett√§ anonyymiss√§ sis√§luokassa GC onnistuu
+		// tehd‰‰n muuttujat ett‰ anonyymiss‰ sis‰luokassa GC onnistuu
 		final int kayttaja_id = h.getKayttaja_id();
 		final Date pvm = h.getPaivamaara();
 		final double tuntien_maara = h.getTuntien_maara();
 		final String selite = h.getSelite();
 
-		// jdbc pist√§√§ generoidun id:n t√§nne talteen
+		// jdbc pist‰‰ generoidun id:n t‰nne talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
 
-		// suoritetaan p√§ivitys PreparedStatementCreatorilla ja keyholderilla
+		// suoritetaan p‰ivitys PreparedStatementCreatorilla ja keyholderilla
 		jdbcTemplate.update(new PreparedStatementCreator() {
 
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
@@ -69,7 +78,7 @@ public class TuntiDAOImpl implements TuntiDAO {
 		}, idHolder);
 
 		// tallennetaan id takaisin beaniin, koska
-		// kutsujalla pit√§isi olla viittaus samaiseen olioon
+		// kutsujalla pit‰isi olla viittaus samaiseen olioon
 		h.setId(idHolder.getKey().intValue());
 
 	}

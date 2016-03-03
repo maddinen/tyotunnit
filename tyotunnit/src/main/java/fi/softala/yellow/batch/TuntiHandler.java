@@ -47,12 +47,12 @@ public class TuntiHandler {
 				String pvmStr = scanner.nextLine();
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 				Date pvm = null;
-				try {
+				/*try {
 					pvm = format.parse(pvmStr);
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
 				// TUNTIMAARA
 				System.out.println("Tuntim‰‰r‰:");
 				double tunti_maara = scanner.nextDouble();

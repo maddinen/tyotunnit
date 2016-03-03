@@ -13,14 +13,29 @@
 <body>
 	<h1>Lisää työtunnit</h1>
 	<form:form modelAttribute="tunti" method="post">
-		Tunnus:<br> <input type="text" name="kayttaja_id"><br>
-		Pvm:<br> <input type="text" name="pvm"><br>
-		Tunnit:<br> <input type="text" name="tuntien_maara"><br>
-		Selite:<br> <textarea name="selite"></textarea><br>
-		<input type="submit" value="Tallenna">
+		<fieldset>
+		<legend>Tiedot</legend>
+			<p>
+				<form:label path="kayttaja_id">Tunnus:</form:label>	<br />
+				<form:input path="kayttaja_id" />
+			</p>
+			<p>
+				<form:label path="pvm">Pvm:</form:label><br />
+				<form:input path="pvm" />
+			</p>
+			<p>
+				<form:label path="tuntien_maara">Tunnit:</form:label><br/>
+				<form:input path="tuntien_maara" />
+			</p>
+			<p>
+				<form:label path="selite">Selite:</form:label><br />
+				<form:input path="selite" />
+			</p>
+			<button type="submit">Tallenna</button>
+		</fieldset>
 	</form:form>
 	<br>
-	<a href="tunnit">Tuntilista</a>
+	<a href="tuntilista">Tuntilista</a>
 	<a href="login">Kirjaudu sisään</a>
 
 </body>
