@@ -1,4 +1,4 @@
-package fi.softala.dao;
+package fi.softala.yellow.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import fi.softala.bean.Kayttaja;
+import fi.softala.yellow.bean.Kayttaja;
 
 public class KayttajaDAOImpl implements KayttajaDAO {
 

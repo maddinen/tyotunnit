@@ -1,42 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>tyotunnit</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
   <servlet>
-    <description></description>
-    <display-name>TunnitServlet</display-name>
-    <servlet-name>TunnitServlet</servlet-name>
-    <servlet-class>fi.softala.servlet.TunnitServlet</servlet-class>
+    <servlet-name>spring</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>TunnitServlet</servlet-name>
-    <url-pattern>/TunnitServlet</url-pattern>
+    <servlet-name>spring</servlet-name>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>RekisteroitymisServlet</display-name>
-    <servlet-name>RekisteroitymisServlet</servlet-name>
-    <servlet-class>fi.softala.servlet.RekisteroitymisServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RekisteroitymisServlet</servlet-name>
-    <url-pattern>/RekisteroitymisServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Kontrolleri</display-name>
-    <servlet-name>Kontrolleri</servlet-name>
-    <servlet-class>fi.softala.servlet.Kontrolleri</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Kontrolleri</servlet-name>
-    <url-pattern>/Kontrolleri</url-pattern>
-  </servlet-mapping>
+  <listener>
+    <listener-class> 
+		org.springframework.web.context.ContextLoaderListener 
+	</listener-class>
+  </listener>
+
 </web-app>

@@ -1,11 +1,11 @@
-package fi.softala.dao;
+package fi.softala.yellow.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import fi.softala.bean.Kayttaja;
+import fi.softala.yellow.bean.Kayttaja;
 
 public class KayttajaRowMapper implements RowMapper<Kayttaja> {
 

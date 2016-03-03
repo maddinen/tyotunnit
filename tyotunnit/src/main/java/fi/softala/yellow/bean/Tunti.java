@@ -1,8 +1,11 @@
-package fi.softala.bean;
+package fi.softala.yellow.bean;
 
-import java.util.Date;
+import java.sql.Date;
+
+/** @author Marita Klaavu */
 
 public class Tunti {
+	private int id;
 	private int kayttaja_id;
 	private Date paivamaara;
 	private double tuntien_maara;
@@ -18,6 +21,14 @@ public class Tunti {
 		this.paivamaara = paivamaara;
 		this.tuntien_maara = tuntien_maara;
 		this.selite = selite;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getKayttaja_id() {

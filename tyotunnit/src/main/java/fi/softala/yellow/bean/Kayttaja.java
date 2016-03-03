@@ -1,9 +1,9 @@
-package fi.softala.bean;
+package fi.softala.yellow.bean;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
-import fi.softala.security.Salaaja;
+import fi.softala.yellow.security.Salaaja;
 
 /**
  * 

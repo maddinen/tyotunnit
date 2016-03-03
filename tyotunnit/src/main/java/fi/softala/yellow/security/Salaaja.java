@@ -1,4 +1,4 @@
-package fi.softala.security;
+package fi.softala.yellow.security;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

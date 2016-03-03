@@ -1,4 +1,4 @@
-package fi.softala.dao;
+package fi.softala.yellow.dao;
 
 public class DAOPoikkeus extends Exception {
 

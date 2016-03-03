@@ -1,6 +1,6 @@
-package fi.softala.batch;
+package fi.softala.yellow.batch;
 
-import java.util.Date;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.eclipse.jdt.core.compiler.InvalidInputException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import fi.softala.bean.Tunti;
-import fi.softala.dao.TuntiDAO;
+import fi.softala.yellow.bean.Tunti;
+import fi.softala.yellow.dao.TuntiDAO;
 
 public class TuntiHandler {
 
@@ -26,7 +26,6 @@ public class TuntiHandler {
 		System.out.println("******************************************");
 		int arvo = 10;
 		while (arvo != 0) {
-			System.out.println("-------------------");
 			System.out.println("1) Kirjaa tuntisi");
 			System.out.println("2) Tarkastele kaikkia tunteja");
 			System.out.println("3) Tarkastele tietyn käyttäjän tunteja");
@@ -84,6 +83,7 @@ public class TuntiHandler {
 				List<Tunti> kayttajanTunnit = dao.haeKayttajanTunnit(no);
 				for (Tunti h : kayttajanTunnit) {
 				}
+				System.out.println("YHTEENSÄ: " + dao.laskeTunnit(no) );
 				break;
 
 			default:

@@ -1,4 +1,4 @@
-package fi.softala.bean;
+package fi.softala.yellow.bean;
 
 public class InvalidKayttajaPoikkeus extends Exception {
 

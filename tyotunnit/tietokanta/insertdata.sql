@@ -13,17 +13,6 @@ INSERT INTO Kayttajat
 (kayttajatunnus, email, etunimi, sukunimi, salasana) VALUES(
 'juju', 'jukka.juslin@haaga-helia.fi','Jukka','Juslin', '9999juju');
 
-/*INSERT INTO Tunnit
-(pvm, tuntien_maara, kayttaja) VALUES(
-'2015-12-31', 10.5, '9999');
-
-INSERT INTO Tunnit
-(pvm, tuntien_maara, kayttaja) VALUES(
-'2016-01-11', 5.0, '6666');
-
-INSERT INTO Tunnit
-(pvm, tuntien_maara, kayttaja) VALUES(
-'2008-01-06', 5.0, '1234');*/
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-01-28', 3, 'Projektisuunnitelman revisointi');
@@ -32,7 +21,7 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-02', 2.5, 'Suunnittelua');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-04', 3, 'Toteutusta');
+VALUES (1, '2016-02-04', 3, 'Suunnittelua ja toteutusta');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-09', 2.5, 'Toteutusta');
@@ -45,4 +34,10 @@ VALUES (1, '2016-02-13', 4, 'Toteutusta');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-15', 3, 'Toteutusta');
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-02-16', 6, 'Toteutusta');
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-02-16', 2, 'Toteutusta');
 

@@ -1,7 +1,8 @@
-package fi.softala.dao;
+package fi.softala.yellow.dao;
 
-import fi.softala.bean.Kayttaja;
 import java.util.List;
+
+import fi.softala.yellow.bean.Kayttaja;
 
 public interface KayttajaDAO {
 

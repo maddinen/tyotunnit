@@ -1,15 +1,17 @@
-package fi.softala.dao;
+package fi.softala.yellow.dao;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import fi.softala.bean.Tunti;
+import fi.softala.yellow.bean.Tunti;
 
+
+/** @author Marita Klaavu */
 
 public class TuntiRowMapper implements RowMapper<Tunti>  {
+	
 	public Tunti mapRow(ResultSet rs, int rowNo) throws SQLException {
 		Tunti h = new Tunti();
 		h.setKayttaja_id(rs.getInt("kayttaja_id"));

@@ -1,3 +1,4 @@
+package fi.softala.yellow.servlet;
 /*package fi.softala.servlet;
 
 import java.io.IOException;
