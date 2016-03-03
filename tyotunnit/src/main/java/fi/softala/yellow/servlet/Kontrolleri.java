@@ -57,16 +57,9 @@ public class Kontrolleri {
 	@RequestMapping (value="uusi", method=RequestMethod.POST)
 	public String create(@ModelAttribute(value="tunti") Tunti tunti) {
 		hdao.lisaaTunti(tunti);
-		return "redirect:/tuntilista";
+		return "redirect:/tuntilista/lista";
 	}
 	
-	//KAIKKIEN TUNTIEN NÄYTTÄMINEN
-	@RequestMapping (value="tuntilista", method=RequestMethod.GET)
-	public String getView(Map<String, Object> model) {
-		model.put("tunnit", hdao.haeTunnit());
-		return "tuntilista";
-	
-	}
 }
 
 
