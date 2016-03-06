@@ -98,13 +98,13 @@ public class TuntiDAOImpl implements TuntiDAO {
 		Object[] parametrit = new Object[] { kayttaja_id };
 		RowMapper<Tunti> mapper = new TuntiRowMapper();
 
-		List<Tunti> tunnit = null;
+		List<Tunti> kayttajanTunnit = null;
 		try {
-			tunnit = jdbcTemplate.query(sql, parametrit, mapper);
+			kayttajanTunnit = jdbcTemplate.query(sql, parametrit, mapper);
 		} catch (IncorrectResultSizeDataAccessException e) {
 			//throw new HenkiloaEiLoydyPoikkeus(e);
 		}
-		return tunnit;
+		return kayttajanTunnit;
 	}
 	
 	public double laskeTunnit(int kayttaja_id){

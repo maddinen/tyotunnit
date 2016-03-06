@@ -1,4 +1,5 @@
 
+
 package fi.softala.yellow.servlet;
 
 import java.io.IOException;
@@ -29,8 +30,7 @@ import fi.softala.yellow.dao.TuntiDAO;
 
 @Controller
 @RequestMapping (value="/tuntilista")
-public class TuntilistausKontrolleri {
-
+public class TietytTunnitKontrolleri {
 	//pitää servletin virkaa, websovelluksessa on aina oltava servlet
 	@Inject
 	private TuntiDAO hdao;
@@ -43,15 +43,18 @@ public class TuntilistausKontrolleri {
 		this.hdao = hdao;
 	}
 	
+	//FORMIN TEKEMINEN
+		@RequestMapping(value="kayttajantunnit", method=RequestMethod.GET)
+		public String getCreateForm(Model model) {
+			return "../search";
+		}
 	
-	//KAIKKIEN TUNTIEN NÄYTTÄMINEN
-	@RequestMapping (value="/lista", method=RequestMethod.GET)
-	public String getView(Map<String, Object> model) {
-		model.put("tunnit", hdao.haeTunnit());
-		return "hourlist";
-	}
-	
-	
-
+	//HENKILÖN TIETOJEN NÄYTTÄMINEN
+		@RequestMapping(value="{kayttaja_id}", method=RequestMethod.POST)
+		public String getView(@PathVariable Integer kayttaja_id, Model model) {
+			List<Tunti> kayttajanTunnit = hdao.haeKayttajanTunnit(kayttaja_id);
+			model.addAttribute("kayttajanTunnit", kayttajanTunnit);
+			return "hourlist";
+		}
 }
 

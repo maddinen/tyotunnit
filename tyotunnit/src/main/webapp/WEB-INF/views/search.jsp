@@ -19,8 +19,20 @@
 			<h2>Tuntilistaus</h2>
 		</div>
 		<div id="box" style="height: 80%;">
+			
 
+			<form:form method="get" commandname="tunti">
+				<table>
+					<tr>
+						<td><form:label path="kayttaja_id">Anna tunnuksesi:</form:label>
+							<br /> <form:input path="kayttaja_id" class="enjoy-input" /></td>
+					</tr>
+				</table>
+				<button type="submit" class="myButton">Hae</button>
 
+			</form:form>
+			
+			
 			<table>
 				<c:forEach var="h" items="${tunnit}">
 					<tr>
@@ -31,8 +43,12 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
+			
+			
+
 			<p>
-				<a href="../tunti/uusi">Takaisin</a>
+				<a href="../tuntilista/lista">Takaisin</a>
 			</p>
 		</div>
 	</div>

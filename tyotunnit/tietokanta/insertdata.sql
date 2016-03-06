@@ -21,10 +21,10 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-02', 2.5, 'Suunnittelua');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-04', 3, 'Suunnittelua ja toteutusta');
+VALUES (1, '2016-02-04', 3, 'Suunnittelua ja toteutuksen aloittelua');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-09', 2.5, 'Toteutusta');
+VALUES (1, '2016-02-09', 2.5, 'Tietokantahaut');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-11', 3, 'Toteutusta');
@@ -33,11 +33,27 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-13', 4, 'Toteutusta');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-15', 3, 'Toteutusta');
+VALUES (1, '2016-02-15', 3, 'Tietokantaan syötöt');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-16', 6, 'Toteutusta');
+VALUES (1, '2016-02-16', 6, 'Konsoliversion toteutus');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-16', 2, 'Toteutusta');
+VALUES (1, '2016-02-16', 2, 'Ongelman ratkontaa');
 
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-02-17', 3, 'Toteutusta');
+
+--tähän joku
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-03-01', 3, 'Spring MVC');
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-03-03', 6, 'REST Json, Spring MVC');
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-03-04', 1, 'CSS suunnittelua');
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-03-06', 3, 'CSS, datepicker, tietyn henkilön tunnit');
