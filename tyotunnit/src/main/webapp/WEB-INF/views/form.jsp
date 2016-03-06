@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- jstl -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
 
 <!DOCTYPE html>
 <html>
@@ -21,8 +22,8 @@
 	$(function() {
 		$("#datepicker").datepicker({
 			dateFormat : "yy-mm-dd",
-			weekStart: -1,
-			
+			weekStart : -1,
+
 		});
 	});
 </script>
@@ -35,25 +36,36 @@
 			<h2>Anna työtuntisi</h2>
 		</div>
 		<div id="box">
+
+			<spring:hasBindErrors name="tunti">
+				<p class="Virheotsikko">Otsikko:</p>
+				<div class="Virheblokki">
+					<form:errors path="*" />
+				</div>
+			</spring:hasBindErrors>
+
 			<form:form modelAttribute="tunti" method="post">
 
 				<table>
 					<tr>
 						<td><form:label path="kayttaja_id">Tunnus:</form:label> <br />
-							<form:input path="kayttaja_id" class="enjoy-input" /></td>
+							<form:input path="kayttaja_id" class="enjoy-input" cssErrorClass="VirheellinenKentta"/></td>
+						<form:errors path="kayttaja_id" cssClass="Virheteksti"/>
 						<td></td>
 					</tr>
 					<tr>
 						<td><form:label path="paivamaara">Pvm:</form:label> <br /> <form:input
 								path="paivamaara" type="text" id="datepicker"
-								class="enjoy-input" /></td>
+								class="enjoy-input" cssErrorClass="VirheellinenKentta"/>
+								<form:errors path="paivamaara" cssClass="Virheteksti"/></td>
 						<td><form:label path="tuntien_maara">Tunnit:</form:label> <br />
 							<form:input path="tuntien_maara" class="enjoy-input"
-								style="width:40%" /></td>
+								style="width:40%" cssErrorClass="VirheellinenKentta"/>
+							<form:errors path="tuntien_maara" cssClass="Virheteksti" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="selite">Selite:</form:label> <br /> <form:input
-								path="selite" class="enjoy-input" /></td>
+								path="selite" class="enjoy-input" cssErrorClass="VirheellinenKentta"/></td>
 						<td></td>
 					</tr>
 				</table>

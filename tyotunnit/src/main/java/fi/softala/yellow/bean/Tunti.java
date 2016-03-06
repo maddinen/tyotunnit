@@ -2,13 +2,28 @@ package fi.softala.yellow.bean;
 
 import java.sql.Date;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 /** @author Marita Klaavu */
 
 public class Tunti {
 	private int id;
+	
+	@NotNull
 	private int kayttaja_id;
+	
+	@NotNull
+	@Past
 	private Date paivamaara;
+	
+	@NotNull
+	@DecimalMin("0.1")
 	private double tuntien_maara;
+	
 	private String selite;
 
 	public Tunti() {
