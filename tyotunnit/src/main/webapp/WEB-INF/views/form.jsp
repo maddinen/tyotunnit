@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- jstl -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,8 +14,11 @@
 
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link href="<c:url value="/resources/styles/style.css" />"
-	rel="stylesheet">
+<link href="<c:url value="/resources/styles/style.css" />"rel="stylesheet">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="<c:url value="/resources/js/index.js" />"></script>
+
 
 </head>
 
@@ -38,23 +41,25 @@
 				<table>
 					<tr>
 						<td><form:label path="kayttaja_id">Tunnus:</form:label> <br />
-							<form:input path="kayttaja_id" class="enjoy-input" cssErrorClass="VirheellinenKentta"/></td>
-						<form:errors path="kayttaja_id" cssClass="Virheteksti"/>
+							<form:input path="kayttaja_id" class="enjoy-input"
+								cssErrorClass="VirheellinenKentta" /></td>
+						<form:errors path="kayttaja_id" cssClass="Virheteksti" />
 						<td></td>
 					</tr>
 					<tr>
 						<td><form:label path="paivamaara">Pvm:</form:label> <br /> <form:input
 								path="paivamaara" type="text" id="datepicker"
-								class="enjoy-input" cssErrorClass="VirheellinenKentta"/>
-								<form:errors path="paivamaara" cssClass="Virheteksti"/></td>
+								class="enjoy-input" cssErrorClass="VirheellinenKentta" /> <form:errors
+								path="paivamaara" cssClass="Virheteksti" /></td>
 						<td><form:label path="tuntien_maara">Tunnit:</form:label> <br />
 							<form:input path="tuntien_maara" class="enjoy-input"
-								style="width:40%" cssErrorClass="VirheellinenKentta"/>
-							<form:errors path="tuntien_maara" cssClass="Virheteksti" /></td>
+								style="width:40%" cssErrorClass="VirheellinenKentta" /> <form:errors
+								path="tuntien_maara" cssClass="Virheteksti" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="selite">Selite:</form:label> <br /> <form:input
-								path="selite" class="enjoy-input" cssErrorClass="VirheellinenKentta"/></td>
+								path="selite" class="enjoy-input"
+								cssErrorClass="VirheellinenKentta" /></td>
 						<td></td>
 					</tr>
 				</table>
@@ -67,9 +72,8 @@
 		</div>
 	</div>
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="resources/js/index.js"></script>
+<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p>
+
 </body>
 
 

@@ -23,6 +23,7 @@ CREATE TABLE authority (
   role varchar(255) NOT NULL UNIQUE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 CREATE TABLE Kayttaja_authority (
   id SMALLINT NOT NULL auto_increment PRIMARY KEY,
   kayttaja_id SMALLINT NOT NULL,
