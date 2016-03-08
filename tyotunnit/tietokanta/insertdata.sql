@@ -11,7 +11,7 @@ INSERT INTO
 	Kayttajat
 VALUES
 	(1,'marita','bf2e94e54051074338044ac39392000f8bf05eca06a3f8836b4083c73aee76f61359252cfdd5592a',1,'Marita','Klaavu', 'marita.klaavu@gmail.com'),
-	(2,'katri','7fc74013565cfcf10dd379f964215c866627cdfcf2606ade05323d1273456f6915c2d73cde88e24b',1,'Katri','Vilonen', 'katri.vilonen@gmail.com');
+	(2,'katri','9e72e4cf83f01fd171091025172c70b4e87009e0d80839628cbaa99281f9f5a5d9b8fe9af45c8cef',1,'Katri','Vilonen', 'katri.vilonen@gmail.com');
 	
 INSERT INTO
 	Kayttaja_authority
