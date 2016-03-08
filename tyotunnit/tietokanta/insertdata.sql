@@ -86,3 +86,6 @@ VALUES (1, '2016-03-08', 3.5, 'CSS, js oikeaan paikkaan, bean validation');
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-09', 1, 'Tietokannan korjausta');
 
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (2, '2016-03-08', 4, 'Toimiva sis‰‰nkirjautuminen');
+
