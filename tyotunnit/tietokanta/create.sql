@@ -1,15 +1,12 @@
-
-CREATE TABLE Kayttajat
-( kayttaja_id 		SMALLINT NOT NULL AUTO_INCREMENT
-, kayttajatunnus 	VARCHAR(50) NOT NULL
-, email 			VARCHAR(50)
-, etunimi 			VARCHAR(50)
-, sukunimi 			VARCHAR(50)
-, salasana 			VARCHAR(50)
-, suola 			VARCHAR(50)
-, PRIMARY KEY (kayttaja_id)
-)Engine=InnoDB;
-		
+CREATE TABLE Kayttajat (
+  id integer NOT NULL auto_increment PRIMARY KEY,
+  kayttajatunnus varchar(255) NOT NULL UNIQUE,
+  password_encrypted varchar(255) NOT NULL,
+  enabled tinyint NOT NULL,
+  etunimi varchar(255) default NULL,
+  sukunimi varchar(255) default NULL,
+  email varchar(50) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Tunnit
 ( tunti_id 			SMALLINT NOT NULL AUTO_INCREMENT
@@ -19,23 +16,13 @@ CREATE TABLE Tunnit
 , selite 			VARCHAR(200)
 , PRIMARY KEY (tunti_id)
 , FOREIGN KEY (kayttaja_id) REFERENCES Kayttajat(kayttaja_id)
-)Engine=InnoDB;
+)Engine=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE authority (
   id integer NOT NULL auto_increment PRIMARY KEY,
   role varchar(255) NOT NULL UNIQUE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
- 
- CREATE TABLE Kayttajat (
-  id integer NOT NULL auto_increment PRIMARY KEY,
-  kayttajatunnus varchar(255) NOT NULL UNIQUE,
-  password_encrypted varchar(255) NOT NULL,
-  enabled tinyint NOT NULL,
-  etunimi varchar(255) default NULL,
-  sukunimi varchar(255) default NULL,
-  email varchar(50) default NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Kayttaja_authority (
   id integer NOT NULL auto_increment PRIMARY KEY,
