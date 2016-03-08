@@ -73,6 +73,9 @@
 		</div>
 	</div>
 
+	
+<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p>
+
 
 </body>
 

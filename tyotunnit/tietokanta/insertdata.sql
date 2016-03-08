@@ -1,3 +1,4 @@
+
 -- delete from Kayttajat;
 -- delete from Tunnit;
 
@@ -65,3 +66,4 @@ VALUES (1, '2016-03-04', 1, 'CSS suunnittelua');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-06', 3, 'CSS, datepicker, tietyn henkilön tunnit');
+
