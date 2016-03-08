@@ -14,8 +14,6 @@
 
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link href="<c:url value="/resources/styles/style.css" />"
 	rel="stylesheet">
 
@@ -68,9 +66,9 @@
 				href="../login">Kirjaudu sisään</a>
 		</div>
 	</div>
-	
-<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p>
 
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="resources/js/index.js"></script>
 </body>
 
