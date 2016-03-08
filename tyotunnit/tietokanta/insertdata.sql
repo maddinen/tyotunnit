@@ -42,7 +42,7 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-13', 4, 'Toteutusta');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-15', 3, 'Tietokantaan syötöt');
+VALUES (1, '2016-02-15', 3, 'Tietokantaan syï¿½tï¿½t');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-16', 6, 'Konsoliversion toteutus');
@@ -53,7 +53,7 @@ VALUES (1, '2016-02-16', 2, 'Ongelman ratkontaa');
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-17', 3, 'Toteutusta');
 
---tähän joku
+--tï¿½hï¿½n joku
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-01', 3, 'Spring MVC');
@@ -65,5 +65,11 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-04', 1, 'CSS suunnittelua');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-03-06', 3, 'CSS, datepicker, tietyn henkilön tunnit');
+VALUES (1, '2016-03-06', 3, 'CSS, datepicker, tietyn henkilÃ¶n tunnit');
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-03-06', 1, 'Bean Validation aloittelua');
+
+INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
+VALUES (1, '2016-03-08', 3, 'CSS, js oikeaan paikkaan, bean validation');
 

@@ -14,7 +14,8 @@
 
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link href="<c:url value="/resources/styles/style.css" />"rel="stylesheet">
+<link href="<c:url value="/resources/styles/style.css" />"
+	rel="stylesheet">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="<c:url value="/resources/js/index.js" />"></script>
@@ -28,13 +29,6 @@
 			<h2>Anna työtuntisi</h2>
 		</div>
 		<div id="box">
-
-			<spring:hasBindErrors name="tunti">
-				<p class="Virheotsikko">Otsikko:</p>
-				<div class="Virheblokki">
-					<form:errors path="*" />
-				</div>
-			</spring:hasBindErrors>
 
 			<form:form modelAttribute="tunti" method="post">
 
@@ -72,7 +66,9 @@
 		</div>
 	</div>
 
-<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p>
+	<p>
+		<a href="../j_spring_security_logout"> Kirjaudu ulos</a>
+	</p>
 
 </body>
 

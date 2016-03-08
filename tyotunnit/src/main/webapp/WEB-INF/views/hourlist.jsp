@@ -20,6 +20,7 @@
 		</div>
 		<div id="box" style="height: 80%;">
 
+			
 
 			<table>
 				<c:forEach var="h" items="${tunnit}">

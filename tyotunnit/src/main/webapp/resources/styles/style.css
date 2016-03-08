@@ -165,6 +165,28 @@ h2 {
 
 .VirheellinenKentta {
 	background-color: #FFE4E4;
+	display: inline-block;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	padding: 10px 20px;
+	border: 1px solid #b7b7b7;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font: normal medium/normal Arial, Helvetica, sans-serif;
+	color: rgba(0, 142, 198, 1);
+	-o-text-overflow: clip;
+	text-overflow: clip;
+	-webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
+	-webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	-moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	-o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	width: 80%;
+	text-align: left;
+	text-overflow: clip;
 }
 .Virheteksti {
 	color: red;
@@ -188,4 +210,20 @@ h2 {
 	color: red;
 	font-style: italic;
 	font-size: medium;
+}
+
+
+/* ----------------  ETSi */
+
+  .stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
 }
