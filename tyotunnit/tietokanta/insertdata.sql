@@ -1,17 +1,25 @@
 -- delete from Kayttajat;
 -- delete from Tunnit;
 
-INSERT INTO Kayttajat
-(kayttajatunnus, email, etunimi, sukunimi, salasana) VALUES(
-'maka', 'marita.klaavu@gmail.com','Marita','Klaavu', '1234maka');
+INSERT INTO
+	authority
+VALUES
+	(2,'ROLE_ADMIN'),
+	(1,'ROLE_USER');
 
-INSERT INTO Kayttajat
-(kayttajatunnus, email, etunimi, sukunimi, salasana) VALUES(
-'kavi', 'katri.vilonen@gmail.com','Katri','Vilonen', '6666kavi');
-
-INSERT INTO Kayttajat
-(kayttajatunnus, email, etunimi, sukunimi, salasana) VALUES(
-'juju', 'jukka.juslin@haaga-helia.fi','Jukka','Juslin', '9999juju');
+INSERT INTO
+	Kayttajat
+VALUES
+	(1,'marita','bf2e94e54051074338044ac39392000f8bf05eca06a3f8836b4083c73aee76f61359252cfdd5592a',1,'Marita','Klaavu', 'marita.klaavu@gmail.com'),
+	(2,'katri','7fc74013565cfcf10dd379f964215c866627cdfcf2606ade05323d1273456f6915c2d73cde88e24b',1,'Katri','Vilonen', 'katri.vilonen@gmail.com');
+	
+INSERT INTO
+	Kayttaja_authority
+VALUES
+	(1,1,1),
+	(2,2,1),
+	(3,2,2),
+	(4,1,2);
 
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)

@@ -22,11 +22,25 @@ CREATE TABLE Tunnit
 )Engine=InnoDB;
 
 
-CREATE TABLE Kayttajan_tunnit
-( kt_id SMALLINT NOT NULL AUTO_INCREMENT
-, tunti_id SMALLINT NOT NULL
-, kayttaja_id SMALLINT NOT NULL
-, PRIMARY KEY (kt_id)
-, FOREIGN KEY (tunti_id) REFERENCES Tunnit(tunti_id)
-, FOREIGN KEY (kayttaja_id) REFERENCES Kayttaja(kayttaja_id)
-)Engine=InnoDB;
+CREATE TABLE authority (
+  id integer NOT NULL auto_increment PRIMARY KEY,
+  role varchar(255) NOT NULL UNIQUE
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ 
+ CREATE TABLE Kayttajat (
+  id integer NOT NULL auto_increment PRIMARY KEY,
+  kayttajatunnus varchar(255) NOT NULL UNIQUE,
+  password_encrypted varchar(255) NOT NULL,
+  enabled tinyint NOT NULL,
+  etunimi varchar(255) default NULL,
+  sukunimi varchar(255) default NULL,
+  email varchar(50) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE Kayttaja_authority (
+  id integer NOT NULL auto_increment PRIMARY KEY,
+  kayttaja_id integer NOT NULL,
+  authority_id integer NOT NULL,
+  FOREIGN KEY (kayttaja_id) REFERENCES Kayttajat(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY (authority_id) REFERENCES authority(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
