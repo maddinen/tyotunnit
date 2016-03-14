@@ -31,7 +31,7 @@ import fi.softala.yellow.dao.TuntiDAO;
 @Controller
 @RequestMapping (value="/tuntilista")
 public class TietytTunnitKontrolleri {
-	//pitää servletin virkaa, websovelluksessa on aina oltava servlet
+	//pitï¿½ï¿½ servletin virkaa, websovelluksessa on aina oltava servlet
 	@Inject
 	private TuntiDAO hdao;
 	
@@ -46,15 +46,15 @@ public class TietytTunnitKontrolleri {
 	//FORMIN TEKEMINEN
 		@RequestMapping(value="kayttajantunnit", method=RequestMethod.GET)
 		public String getCreateForm(Model model) {
-			return "../search";
+			return "personHourlist";
 		}
 	
-	//HENKILÖN TIETOJEN NÄYTTÄMINEN
+	//HENKILï¿½N TIETOJEN Nï¿½YTTï¿½MINEN
 		@RequestMapping(value="{kayttaja_id}", method=RequestMethod.POST)
 		public String getView(@PathVariable Integer kayttaja_id, Model model) {
 			List<Tunti> kayttajanTunnit = hdao.haeKayttajanTunnit(kayttaja_id);
 			model.addAttribute("kayttajanTunnit", kayttajanTunnit);
-			return "hourlist";
+			return "personHourlist";
 		}
 }
 

@@ -77,24 +77,24 @@
 
 			<!-- -------SEARCHFORM-------- -->
 
-			<!-- <form id="search-form" class="form-inline" role="form" method="post"
+			<form id="search-form" class="form-inline" role="form" method="post"
 				action="//www.google.com/search" target="_blank">
 				<div class="input-group">
 					<input type="text" class="form-control search-form"
 						placeholder="Etsi">
 					<!--DO NOT NEED TRAILING SLASH "/" As HTML5 FORMS SLASHES ARE NO LONGER REQUIRED-->
-					<!-- <span class="input-group-btn"><button type="submit"
+					<span class="input-group-btn"><button type="submit"
 							class="btn btn-primary search-btn" data-target="#search-form"
 							name="q">
 							<i class="fa fa-search"> <!--FONT AWESOME font @ "http://fortawesome.github.io/Font-Awesome/" -->
-							<!-- </i>
+							</i>
 						</button></span>
 				</div>
-			</form>-->
+			</form>
 
 
 			<!-- -------RESULTS-------- -->
-			<table class="table table-borderless">
+			<!-- <table class="table table-borderless">
 				<c:forEach var="h" items="${tunnit}">
 					<tr>
 						<td><c:out value="${h.kayttaja_id}" /></td>
@@ -103,7 +103,7 @@
 						<td><c:out value="${h.selite}" /></td>
 					</tr>
 				</c:forEach>
-			</table>
+			</table>-->
 			<p>
 				<a href="../tunti/uusi"><button class="myButton">Takaisin</button></a>
 			</p>
