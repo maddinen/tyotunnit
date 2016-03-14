@@ -48,13 +48,27 @@ public class TietytTunnitKontrolleri {
 		public String getCreateForm(Model model) {
 			return "personHourlist";
 		}
+		
+//		@RequestMapping(value="kayttajantunnit", method=RequestMethod.GET)
+//		public String showHoursforGivenUser(@RequestParam("kayttaja_id")Integer kayttaja_id, Map<String, Object> model){
+//			List<Tunti> kayttajanTunnit = hdao.haeKayttajanTunnit(kayttaja_id);
+//			model.put("kayttajanTunnit", kayttajanTunnit);
+//			return "personHourlist";
+//			}
+		
+		@RequestMapping(value="{kayttaja_id}", method=RequestMethod.POST)
+		public String showHoursforGivenUser(@RequestParam("kayttaja_id")Integer kayttaja_id, Map<String, Object> model){
+			List<Tunti> kayttajanTunnit = hdao.haeKayttajanTunnit(kayttaja_id);
+			model.put("kayttajanTunnit", kayttajanTunnit);
+			return "personHourlist";
+			}
 	
 	//HENKIL�N TIETOJEN N�YTT�MINEN
-		@RequestMapping(value="{kayttaja_id}", method=RequestMethod.POST)
-		public String getView(@PathVariable Integer kayttaja_id, Model model) {
-			List<Tunti> kayttajanTunnit = hdao.haeKayttajanTunnit(kayttaja_id);
-			model.addAttribute("kayttajanTunnit", kayttajanTunnit);
-			return "personHourlist";
-		}
+//		@RequestMapping(value="{kayttaja_id}", method=RequestMethod.POST)
+//		public String getView(@PathVariable Integer kayttaja_id, Model model) {
+//			List<Tunti> kayttajanTunnit = hdao.haeKayttajanTunnit(kayttaja_id);
+//			model.addAttribute("kayttajanTunnit", kayttajanTunnit);
+//			return "personHourlist";
+//		}
 }
 

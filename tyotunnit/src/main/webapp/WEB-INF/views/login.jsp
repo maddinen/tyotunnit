@@ -50,10 +50,10 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">Näytä tunnit <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="../tuntilista/lista">Kaikki</a></li>
-								<li><a href="../tuntilista/kayttajantunnit">Käyttäjän</a></li>
+								<li><a href="tuntilista/lista">Kaikki</a></li>
+								<li><a href="tuntilista/kayttajantunnit">Käyttäjän</a></li>
 							</ul></li>
-						<li><a href="../loginpage">Kirjaudu</a></li>
+						<li><a href="loginpage">Kirjaudu</a></li>
 					</ul>
 				</div>
 			</div>
@@ -81,10 +81,10 @@
 			<form action="j_spring_security_check" method="post">
 				<table>
 					<tr>
-						<td style="font-weight: bold;">Käyttäjätunnus:<input type='text' name='j_username' value='' class="enjoy-input"></td>
+						<td class="bold">Käyttäjätunnus:<input type='text' name='j_username' value='' class="enjoy-input"></td>
 					</tr>
 					<tr>
-						<td style="font-weight: bold;">Salasana:<input type='password' name='j_password' class="enjoy-input" /></td>
+						<td class="bold" >Salasana:<input type='password' name='j_password' class="enjoy-input" /></td>
 					</tr>
 					<tr>
 						<td><button type="submit" class="myButton">Kirjaudu</button></td>

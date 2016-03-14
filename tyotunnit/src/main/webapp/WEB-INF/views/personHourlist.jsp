@@ -3,6 +3,8 @@
 <%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -78,7 +80,7 @@
 			<!-- -------SEARCHFORM-------- -->
 
 			<form id="search-form" class="form-inline" role="form" method="post"
-				action="//www.google.com/search" target="_blank">
+				action="${kayttajantunnit}">
 				<div class="input-group">
 					<input type="text" class="form-control search-form"
 						placeholder="Etsi">
@@ -94,8 +96,8 @@
 
 
 			<!-- -------RESULTS-------- -->
-			<!-- <table class="table table-borderless">
-				<c:forEach var="h" items="${tunnit}">
+			<table class="table table-borderless">
+				<c:forEach var="h" items="${kayttajanTunnit}">
 					<tr>
 						<td><c:out value="${h.kayttaja_id}" /></td>
 						<td><c:out value="${h.paivamaara}" /></td>
@@ -103,10 +105,10 @@
 						<td><c:out value="${h.selite}" /></td>
 					</tr>
 				</c:forEach>
-			</table>-->
-			<p>
+			</table>
+			<!-- <p>
 				<a href="../tunti/uusi"><button class="myButton">Takaisin</button></a>
-			</p>
+			</p>-->
 		</div>
 		<!-- WHITEBOX close -->
 	</div>
