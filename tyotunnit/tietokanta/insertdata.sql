@@ -45,7 +45,7 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-13', 4, 'Toteutusta');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-02-15', 3, 'Tietokantaan sy�t�t');
+VALUES (1, '2016-02-15', 3, 'Tietokantaan syï¿½tï¿½t');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-02-16', 6, 'Konsoliversion toteutus');
@@ -66,13 +66,13 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-03', 6, 'REST Json, Spring MVC');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (3, '2016-03-03', 3, 'Spring MVC yms. protolle');
+VALUES (3, '2016-03-03', 3, 'Springz MVC yms. protolle');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-04', 1, 'CSS suunnittelua');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (1, '2016-03-06', 3, 'CSS, datepicker, tietyn henkilön tunnit');
+VALUES (1, '2016-03-06', 3, 'CSS, datepicker, tietyn henkilÃ¶n tunnit');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-06', 1, 'Bean Validation aloittelua');
@@ -87,5 +87,5 @@ INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
 VALUES (1, '2016-03-09', 1, 'Tietokannan korjausta');
 
 INSERT INTO Tunnit (kayttaja_id, pvm, tuntien_maara, selite)
-VALUES (2, '2016-03-08', 4, 'Toimiva sis��nkirjautuminen');
+VALUES (2, '2016-03-08', 4, 'Toimiva sisäänkirjautuminen');
 

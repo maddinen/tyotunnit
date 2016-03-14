@@ -11,7 +11,7 @@
 <body>
 <h1>SUOJATTU PÄÄSIVU</h1>
 
-<h3>Sisäänkirjautuneena: <sec:authentication property="principal.kayttaja_id"/></h3>
+<h3>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></h3>
  
 <p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p>
 
