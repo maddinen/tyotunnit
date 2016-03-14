@@ -90,7 +90,7 @@
 							<form:input path="kayttaja_id" class="enjoy-input"
 								cssErrorClass="VirheellinenKentta" /></td>
 						<form:errors path="kayttaja_id" cssClass="Virheteksti" />
-						<td style="width:10%; background-color:yellow;"></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td><form:label path="paivamaara">Pvm:</form:label> <br /> <form:input
@@ -99,58 +99,20 @@
 								path="paivamaara" cssClass="Virheteksti" /></td>
 						<td><form:label path="tuntien_maara">Tunnit:</form:label> <br />
 							<form:input path="tuntien_maara" class="enjoy-input"
-								style="width:40%; background-color:yellow;" cssErrorClass="VirheellinenKentta" /> <form:errors
+								style="width:40%;" cssErrorClass="VirheellinenKentta" /> <form:errors
 								path="tuntien_maara" cssClass="Virheteksti" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="selite">Selite:</form:label> <br /> <form:input
 								path="selite" class="enjoy-input"
 								cssErrorClass="VirheellinenKentta" /></td>
-						<td style="width:10%; background-color:yellow;"></td>
+						<td></td>
 					</tr>
 				</table>
 
 				<button type="submit" class="myButton">Tallenna</button>
 			</form:form>
 
-
-
-			<div class="container">
-				<div class="row">
-					<div class='col-sm-6'>
-						<div class="form-group">
-							<div class='input-group date' id='datetimepicker1'>
-								<input type='text' class="form-control" /> <span
-									class="input-group-addon"> <span
-									class="glyphicon glyphicon-calendar"></span>
-								</span>
-							</div>
-						</div>
-					</div>
-					<script type="text/javascript">
-						$(function() {
-							$('#datetimepicker1').datetimepicker();
-						});
-					</script>
-				</div>
-			</div>
-
-
-
-
-
-
-    <div class="control-group">
-        <label for="date-picker-2" class="control-label">B</label>
-        <div class="controls">
-            <div class="input-group">
-                <input id="date-picker-2" type="text" class="date-picker form-control" />
-                <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
-
-                </label>
-            </div>
-        </div>
-    </div>
 
 
 
